@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: hsl(176deg, 100%, 72%);
+  background: linear-gradient(45deg, hsl(176deg, 100%, 72%) 0%, hsl(255deg, 78%, 49%) 100%);
+  background: -moz-linear-gradient(45deg, hsl(176deg, 100%, 72%) 0%, hsl(255deg, 78%, 49%) 100%);
+  background: -webkit-linear-gradient(45deg, hsl(176deg, 100%, 72%) 0%, hsl(255deg, 78%, 49%) 100%);
+  position: relative;
+}
+
+.calc-wrapper {
+  height: 70%;
+  aspect-ratio: 1/1.8;
+  border: solid 4px #0b0036;
+  border-radius: 0.7em;
+  background: #2e3951;
+  font-size: 35px;
+  font-family: "Karla", sans-serif;
+}
+.calc-wrapper .calc-output-wrapper {
+  width: 100%;
+  height: 30%;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: 0.8em;
+  padding: 0.5em 1em;
+  border-top-left-radius: 0.7em;
+  border-top-right-radius: 0.7em;
+  background: #212742;
+  color: #a2bdd3;
+  z-index: 0;
+}
+.calc-wrapper .calc-grid {
+  width: 100%;
+  height: 70%;
+  display: grid;
+  gap: 0.5em;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  padding: 0.5em;
+}
+.calc-wrapper .calc-grid div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3em;
+  transition: 100ms ease;
+  user-select: none;
+  cursor: pointer;
+}
+.calc-wrapper .calc-grid div:not(div[data-number], div[data-equals], div[data-point]) {
+  background: #212742;
+  color: #2cace8;
+}
+.calc-wrapper .calc-grid div:not(div[data-number], div[data-equals], div[data-point]):hover {
+  background: #191d31;
+}
+.calc-wrapper .calc-grid div:not(div[data-number], div[data-equals], div[data-point]):active {
+  background: #2cace8;
+  color: white;
+}
+.calc-wrapper .calc-grid div[data-number], .calc-wrapper .calc-grid div[data-point] {
+  color: #a2bdd3;
+}
+.calc-wrapper .calc-grid div[data-number]:hover, .calc-wrapper .calc-grid div[data-point]:hover {
+  background: #252e41;
+}
+.calc-wrapper .calc-grid div[data-number]:active, .calc-wrapper .calc-grid div[data-point]:active {
+  background: #2cace8;
+  color: white;
+}
+.calc-wrapper .calc-grid div[data-equals] {
+  grid-column: 4/5;
+  background: #2cace8;
+  color: white;
+}
+.calc-wrapper .calc-grid div[data-equals]:hover {
+  background: #1481b4;
+}
+.calc-wrapper .calc-grid div[data-equals]:active {
+  background: #adf8ff;
+  color: #212742;
+}
+.calc-wrapper .calc-grid div:nth-child(1) {
+  grid-column: 1/3;
+}
+.calc-wrapper .calc-grid div:nth-child(2) {
+  grid-column: 3/4;
+}
